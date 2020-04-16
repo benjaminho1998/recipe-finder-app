@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Recipe from './components/Display/Recipe';
+import Home from './components/Home/Home';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,14 +17,14 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleInput() { 
-    this.setState({'showRecipe': true});
+  handleInput(val) { 
+    this.setState({'showRecipe': val});
   };
 
-  handleChange(e) {
+  handleChange(numCal) {
     const re = /^[0-9\b]+$/;
-      if (e.target.value === '' || re.test(e.target.value)) {
-        this.setState({'numCalories': e.target.value});
+      if (numCal === '' || re.test(numCal)) {
+        this.setState({'numCalories': numCal});
         this.setState({'showWarning': false});
       } else {
         this.setState({'showWarning': true});
@@ -34,14 +35,11 @@ class App extends React.Component {
     return(
       <div>
         {this.state.showRecipe ? 
-          <Recipe numCalories={this.state.numCalories}/> :
-          <form onSubmit={this.handleInput}>
-            <label>Enter a calorie amount to which the meals will add up to for the day:</label>
-            <br></br>
-            <input type="text" onChange={this.handleChange} value={this.state.numCalories}></input>
-            <button type="button" onClick={this.handleInput}>Go!</button>
+          <Recipe numCalories={this.state.numCalories}/> : 
+          <div> 
+            <Home numCalories={this.state.numCalories} handleChange={this.handleChange} handleInput={this.handleInput}/>
             {this.state.showWarning ? (<div>Please only enter numbers.</div>) : null}
-          </form>
+          </div>
         }
       </div>
     );
