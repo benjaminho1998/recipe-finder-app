@@ -12,13 +12,13 @@ class Home extends React.Component {
         this.props.handleChange(e.target.value);
     };
 
-    passClickBack(e) {
+    passClickBack() {
         this.props.handleInput(true);
     };
 
     render() {
         return(
-            <form onSubmit={this.handleInput}>
+            <form onSubmit={this.passClickBack}>
                 <label>Enter a calorie amount to which the meals will add up to for the day:</label>
                 <br></br>
                 <input type="text" onChange={this.passNumCalBack} value={this.props.numCalories}></input>

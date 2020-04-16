@@ -2,22 +2,24 @@ import React from 'react';
 import axios from 'axios';
 import Meal from '../Meal/Meal'
 
-class Recipe extends React.Component {
+class Display extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             meals: ''
         }
-
-        this.hi = "hi";
     }
 
     //TODO: implement get recipe by ID api call
 
+    passBackHome = () => {
+        this.props.handleInput(false);
+    };
+
     handleClick = () => {
         this.getLoadData();
-    }
+    };
 
     componentDidMount() {
         this.getLoadData();
@@ -50,10 +52,11 @@ class Recipe extends React.Component {
                 <div>
                     {mealsArr.map((meal, i) => 
                         <div key={i}>
-                            <Meal mealData={meal}/>
+                            <Meal mealData={meal} id={meal.id}/>
                         </div>
                     )}
                         <button type="button" onClick={this.handleClick}>Find more!</button>
+                        <button type="button" onClick={this.passBackHome}>Go Home!</button>
                 </div>
             );
         } else {
@@ -62,4 +65,4 @@ class Recipe extends React.Component {
     }
 }
 
-export default Recipe;
+export default Display;
