@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Recipe from './Recipe';
+import Recipe from './components/Display/Recipe';
 
 class App extends React.Component {
   constructor(props) {
