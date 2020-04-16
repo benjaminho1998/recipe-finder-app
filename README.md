@@ -2,10 +2,10 @@
 An app to find a breakfast, lunch, and dinner that add up to the desired amount of calories.
 
 ### Technologies
-React.js
-JavaScript
-Axios
-Spoonacular API
+- React.js
+- JavaScript
+- Axios
+- Spoonacular API
 
 ### How to run
 
