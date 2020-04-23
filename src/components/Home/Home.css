@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+.label {
+    font-size: 3.5em;
+    font-family: Quicksand;
+}
+
+.input {
+    height: 3em;
+    width: 20em;
+    border-radius: 7px;
+    outline: none;
+    background-color: rgba(238, 238, 238, 0.5);
+}

@@ -36,10 +36,10 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="screen">
         {this.state.showRecipe ? 
           <Display numCalories={this.state.numCalories} handleInput={this.handleInput}/> : 
-          <div> 
+          <div className="home-container"> 
             <Home numCalories={this.state.numCalories} handleChange={this.handleChange} handleInput={this.handleInput}/>
             {this.state.showWarning ? (<div>Please only enter numbers.</div>) : null}
           </div>

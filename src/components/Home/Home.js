@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.css';
 
 class Home extends React.Component {
     constructor(props) {
@@ -16,13 +17,14 @@ class Home extends React.Component {
         this.props.handleInput(true);
     };
 
+    //TODO: Create the lock feature
+
     render() {
         return(
             <form onSubmit={this.passClickBack}>
-                <label>Enter a calorie amount to which the meals will add up to for the day:</label>
+                <label className="label">Enter daily calorie goal:</label>
                 <br></br>
-                <input type="text" onChange={this.passNumCalBack} value={this.props.numCalories}></input>
-                <button type="button" onClick={this.passClickBack}>Go!</button>
+                <input className="input" type="text" onChange={this.passNumCalBack} value={this.props.numCalories} placeholder="Ex: 2000"></input>
             </form>
         );
     }

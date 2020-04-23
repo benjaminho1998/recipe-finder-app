@@ -1,0 +1,16 @@
+.meal-container {
+    min-height: 30%;
+    width: 1%;
+    text-align: center;
+    margin: 1em;
+}
+
+.cont {
+    max-height: 100%;
+}
+
+.bottom-bar {
+    margin-left: 1em;
+}
+
+
