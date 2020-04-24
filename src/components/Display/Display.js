@@ -55,15 +55,15 @@ class Display extends React.Component {
                         <tr className="cont">
                             {mealsArr.map((meal, i) => 
                                 <td className="meal-container" key={i}>
-                                    <Meal mealData={meal} id={meal.id}/>
+                                    <Meal title={meal.title} id={meal.id}/>
                                 </td>
                             )}
                         </tr>
                         <br></br>
                         <br></br>
                         <tr>
-                            <Button className="bottom-bar" variant="outline-dark" type="button" onClick={this.handleClick}>Find more!</Button>
-                            <Button className="bottom-bar" variant="outline-dark" type="button" onClick={this.passBackHome}>Go Home!</Button>
+                            <Button className="bottom-bar" variant="dark" type="button" onClick={this.handleClick}>Find more!</Button>
+                            <Button className="bottom-bar" variant="dark" type="button" onClick={this.passBackHome}>Go Home!</Button>
                         </tr>
                     </tbody>
                 </table>

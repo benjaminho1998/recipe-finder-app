@@ -4,8 +4,30 @@ import './Meal.css';
 import { Button } from 'react-bootstrap';
 
 class Meal extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.url = '';
+        this.state = {
+            img: ''
+        }
+    }
 
     handleClick = () => {
+        window.open(this.url, '_blank');
+    }
+
+    componentDidMount() {
+        this.getMealData();
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.title !== prevProps.title) {
+            this.getMealData();
+        }
+    }
+
+    getMealData = () => {
         axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${this.props.id}/information`, {
             "headers":{
             "content-type":"application/octet-stream",
@@ -13,27 +35,27 @@ class Meal extends React.Component {
             "x-rapidapi-key":"7c5d80fdc1msh37c56aa01298fe6p135c56jsn79df1910ca9f"
             }
         })
-        .then((res)=>{
+        .then((res) => {
             if(res.data) {
-                window.open(res.data.sourceUrl, '_blank');
+                this.url = res.data.sourceUrl;
+                this.setState({img: res.data.image});
             }
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error)
         })
     }
 
     render() {
-        const url = this.props.mealData.image;
-        console.log(url);
         return(
             <span>
-                <h1>
-                    {this.props.mealData.title}
+                <h1 className="title">
+                    {this.props.title}
                 </h1>
                 <div>
-                    <img className="image" alt="" src={`https://spoonacular.com/recipeImages/${url}`}></img>
+                    <img className="image" alt="" src={this.state.img}></img>
                 </div>
+                <br></br>
                 <Button variant="outline-dark" onClick={this.handleClick}>Recipe</Button>
             </span>
         );
