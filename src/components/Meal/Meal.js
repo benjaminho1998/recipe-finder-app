@@ -13,20 +13,24 @@ class Meal extends React.Component {
         }
     }
 
+    //Handles when user clicks on Recipe button
     handleClick = () => {
         window.open(this.url, '_blank');
     }
 
+    //This is needed to call another API to load the images and recipe links for the three meals
     componentDidMount() {
         this.getMealData();
     }
 
+    //Used to load images and recipe links for the three meals when user presses Find More!
     componentDidUpdate(prevProps) {
         if(this.props.title !== prevProps.title) {
             this.getMealData();
         }
     }
 
+    //Another API call to load images and recipe links
     getMealData = () => {
         axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${this.props.id}/information`, {
             "headers":{
@@ -46,6 +50,7 @@ class Meal extends React.Component {
         })
     }
 
+    //Renders each of the three meals
     render() {
         return(
             <span>

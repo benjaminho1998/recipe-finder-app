@@ -1,16 +1,9 @@
-html, body {
+html, body, #root, .screen {
   height: 100%;
   width: 100%;
 }
 
-#root {
-  height: 100%;
-  width: 100%;
-}
-
-.screen {
-  height: 100%;
-  width: 100%;
+.color {
   background-color: #C4F0FA;
 }
 

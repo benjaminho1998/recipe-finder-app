@@ -17,6 +17,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  //Handles input received from Home component
   handleInput(val) { 
     if(val === false) {
       this.setState({numCalories: ''});
@@ -24,24 +25,28 @@ class App extends React.Component {
     this.setState({showRecipe: val});
   };
 
+  //Updates input state and warning state
   handleChange(numCal) {
     const re = /^[0-9\b]+$/;
       if (numCal === '' || re.test(numCal)) {
-        this.setState({numCalories: numCal});
-        this.setState({showWarning: false});
+        this.setState({
+          numCalories: numCal,
+          showWarning: false
+        });
       } else {
         this.setState({showWarning: true});
       };
   }
 
+  //Conditionally renders Home and Display components
   render() {
     return(
-      <div className="screen">
+      <div className="screen color">
         {this.state.showRecipe ? 
           <Display numCalories={this.state.numCalories} handleInput={this.handleInput}/> : 
           <div className="home-container"> 
             <Home numCalories={this.state.numCalories} handleChange={this.handleChange} handleInput={this.handleInput}/>
-            {this.state.showWarning ? (<div>Please only enter numbers.</div>) : null}
+            {this.state.showWarning && <div>Please only enter numbers.</div>}
           </div>
         }
       </div>

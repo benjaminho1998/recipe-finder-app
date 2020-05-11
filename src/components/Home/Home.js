@@ -9,6 +9,8 @@ class Home extends React.Component {
         this.passClickBack = this.passClickBack.bind(this);
     }
 
+    //Raises input state to App component
+
     passNumCalBack(e) {
         this.props.handleChange(e.target.value);
     };
@@ -17,8 +19,7 @@ class Home extends React.Component {
         this.props.handleInput(true);
     };
 
-    //TODO: Create the lock feature
-
+    //Basic input form
     render() {
         return(
             <form onSubmit={this.passClickBack}>
