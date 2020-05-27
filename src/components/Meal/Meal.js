@@ -3,8 +3,6 @@ import axios from 'axios';
 import './Meal.css';
 import { Button } from 'react-bootstrap';
 
-const key = process.env.REACT_APP_SPOON_KEY;
-
 class Meal extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +36,7 @@ class Meal extends React.Component {
             "headers":{
             "content-type":"application/octet-stream",
             "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key":"7c5d80fdc1msh37c56aa01298fe6p135c56jsn79df1910ca9f"
+            "x-rapidapi-key":"7c5d80fdc1msh37c56aa01298fe6p135c56jsn79df1910ca9f" //Fine for public use
             }
         })
         .then((res) => {
