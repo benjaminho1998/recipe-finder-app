@@ -38,7 +38,7 @@ class Meal extends React.Component {
             "headers":{
             "content-type":"application/octet-stream",
             "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": key
+            "x-rapidapi-key":"7c5d80fdc1msh37c56aa01298fe6p135c56jsn79df1910ca9f"
             }
         })
         .then((res) => {
